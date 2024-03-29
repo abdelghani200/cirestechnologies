@@ -29,19 +29,19 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable);
         http.authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/api/auth/login",
-                                "/api/users/batch",
-                                "/api/users/generate",
+                                "/api/users/**",
                                 "/api/users",
                                 "/v2/api-docs",
                                 "/v3/api-docs",
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
-                                "/swagger-ui.html"
+                                "/swagger-ui.html",
+                                "/h2-console/**"
                         )
                         .permitAll()
                         .anyRequest().authenticated()
                 )
-
+                .headers().disable()
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
         http.addFilterAfter(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

@@ -3,6 +3,7 @@ package com.cirestechnologies.cirestechnologies.services.Implementations;
 import com.cirestechnologies.cirestechnologies.Faker.FakerUser;
 import com.cirestechnologies.cirestechnologies.entities.User;
 import com.cirestechnologies.cirestechnologies.exceptions.CountValueInvalidException;
+import com.cirestechnologies.cirestechnologies.persistences.UserRepository;
 import com.cirestechnologies.cirestechnologies.services.Interfaces.GenerateUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

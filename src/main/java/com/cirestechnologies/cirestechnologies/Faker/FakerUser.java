@@ -13,6 +13,7 @@ public class FakerUser {
     private final Faker faker;
 
     public User generate(User user){
+        user.setId(faker.number().randomNumber());
         user.setFirstName(faker.name().firstName());
         user.setLastName(faker.name().lastName());
         user.setBirthDate(faker.date().birthday());

@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.BadRequestException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,10 +29,10 @@ public class JsonFileServiceImpl implements JsonFileService {
 
     @Override
     public UploadRes saveJsonFile(MultipartFile jsonFile) throws IOException {
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
         if (!Objects.equals(jsonFile.getContentType(), "application/json")){
             throw new BadRequestException("Must be a JSON format");
         }
-
         List<User> users = new ObjectMapper().readValue(jsonFile.getInputStream(), new TypeReference<List<User>>() {
         });
 

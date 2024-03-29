@@ -8,5 +8,5 @@ spring:
     console:
       enabled: true
 
-  server:
-    port: 9090
+server:
+  port: 9090
