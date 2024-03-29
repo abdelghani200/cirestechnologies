@@ -33,9 +33,8 @@ public class UsersGeneratorServiceImplTest {
         // Given
         int count = 5;
         User fakeUser = new User(); // Create a fake user
-        when(fakeUserGenerator.generate(fakeUser)).thenReturn(fakeUser); // Mock the behavior of FakeUserGenerator
+        when(fakeUserGenerator.generate(fakeUser)).thenReturn(fakeUser);
 
-        // When
         List<User> users = usersGeneratorService.generateUsers(count);
 
         // Then
